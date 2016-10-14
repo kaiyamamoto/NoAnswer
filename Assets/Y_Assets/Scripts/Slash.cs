@@ -58,8 +58,8 @@ public class Slash : MonoBehaviour
         {
             // オブジェクトの生成
             Vector2 obj_pos;
-            obj_pos.x = start_point.x + (end_point.x - start_point.x) / 2;
-            obj_pos.y = start_point.y + (end_point.y - start_point.y) / 2;
+            obj_pos.x = start_point.x +(end_point.x - start_point.x) / 2;
+            obj_pos.y = start_point.y +(end_point.y - start_point.y) / 2;
             Instantiate(gate, obj_pos, Quaternion.identity);
         }
     }

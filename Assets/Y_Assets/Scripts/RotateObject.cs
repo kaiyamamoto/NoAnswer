@@ -3,7 +3,9 @@ using System.Collections;
 
 public class RotateObject : MonoBehaviour {
 
-    GameObject refObj;
+    GameObject ref_obj;
+    float distance;
+    float angle; 
     void Awake()
     {
         Debug.Log("create");
@@ -14,19 +16,19 @@ public class RotateObject : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        refObj = GameObject.Find("Scythe");
+       ref_obj = GameObject.Find("Scythe");
 
-        float angle = refObj.GetComponent<Slash>().angle;
-        float distance = refObj.GetComponent<Slash>().distance;
+        angle =ref_obj.GetComponent<Slash>().angle;
+        distance =ref_obj.GetComponent<Slash>().distance;
 
         this.transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, angle * Mathf.Rad2Deg);
-        this.transform.localScale = new Vector3(0.2f, distance, 0.2f);
+        this.transform.localScale = new Vector3(0, distance/4, 0.2f);
 
         //GameObject.Destroy(this);
     }
 
     // Update is called once per frame
     void Update () {
-	
-	}
+
+    }
 }
