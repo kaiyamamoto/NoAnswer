@@ -47,6 +47,8 @@ public class Slash : MonoBehaviour
             // 距離の算出
             distance = Vector2.Distance(start_point, end_point);
 
+            Debug.Log("distance = " + distance);
+
         }
 
 

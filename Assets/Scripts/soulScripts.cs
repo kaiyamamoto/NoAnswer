@@ -33,6 +33,9 @@ public class soulScripts : MonoBehaviour
         }
     }
 
+
+
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag=="Haeven")
@@ -41,6 +44,14 @@ public class soulScripts : MonoBehaviour
 
             Destroy(this.gameObject);
         }
+
+        if (other.tag == "Gate")
+        {
+            Debug.Log("hit");
+
+            Destroy(this.gameObject);
+        }
+
     }
 
     // 移動

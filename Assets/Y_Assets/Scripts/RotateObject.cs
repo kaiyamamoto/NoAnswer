@@ -21,6 +21,7 @@ public class RotateObject : MonoBehaviour {
 
         this.transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, angle * Mathf.Rad2Deg);
         this.transform.localScale = new Vector3(0.2f, distance, 0.2f);
+
         //GameObject.Destroy(this);
     }
 
