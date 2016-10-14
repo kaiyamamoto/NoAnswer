@@ -1,20 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Slash : MonoBehaviour {
+public class Slash : MonoBehaviour
+{
     private Vector2 start_point;
     private Vector2 end_point;
+    public float angle;
+    public GameObject gate;
+    public float distance;
 
-    [SerializeField]
-    private GameObject gate;
 
     // Use this for initialization
-    void Start () {
-
+    void Start()
+    {
+       
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         // キーを押した瞬間、始点を取得
         if (Input.GetMouseButtonDown(0))
         {
@@ -26,8 +30,9 @@ public class Slash : MonoBehaviour {
             start_point = screenPos;
         }
 
-        // キーを離した瞬間、終点を取得し、オブジェクトを生成
-        if (Input.GetMouseButtonUp(0))
+
+
+        if (Input.GetMouseButton(0))
         {
             //マウスのx,y座標を取得
             Vector2 vecMouse = Input.mousePosition;
@@ -37,15 +42,23 @@ public class Slash : MonoBehaviour {
             end_point = screenPos;
 
             // 角度を計算
-            float angle = Mathf.Atan2(start_point.x - end_point.x, start_point.y - end_point.y);
+            angle = Mathf.Atan2( end_point.x - start_point.x ,   start_point.y-end_point.y);
+
+            // 距離の算出
+            distance = Vector2.Distance(start_point, end_point);
+
+        }
 
 
 
+        // キーを離した瞬間、終点を取得し、オブジェクトを生成
+        if (Input.GetMouseButtonUp(0))
+        {
             // オブジェクトの生成
-            Instantiate(gate, start_point,Quaternion.identity);
-
-             //transform.rotation = (0, 0, angle);
-
+            Vector2 obj_pos;
+            obj_pos.x = start_point.x + (end_point.x - start_point.x) / 2;
+            obj_pos.y = start_point.y + (end_point.y - start_point.y) / 2;
+            Instantiate(gate, obj_pos, Quaternion.identity);
         }
     }
 }
