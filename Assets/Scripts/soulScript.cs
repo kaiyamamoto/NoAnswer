@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class soulScripts : MonoBehaviour
+public class soulScript : MonoBehaviour
 {
     // 移動スピード
     private float speed_x;
@@ -27,8 +27,6 @@ public class soulScripts : MonoBehaviour
     {
         if (other.tag=="Screen")
         {
-            Debug.Log("return");
-
             speed_x *= -1.0f;
         }
     }
@@ -38,17 +36,9 @@ public class soulScripts : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag=="Haeven")
-        {
-            Debug.Log("soul arrival");
-
-            Destroy(this.gameObject);
-        }
 
         if (other.tag == "Gate")
         {
-            Debug.Log("hit");
-
             Destroy(this.gameObject);
         }
 
