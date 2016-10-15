@@ -8,7 +8,7 @@ public class RotateObject : MonoBehaviour {
     float angle; 
     void Awake()
     {
-        Debug.Log("create");
+       // Debug.Log("create");
        
         //this.transform.Rotate(new Vector3(0.0f, 0.0f, 10.0f));
     }

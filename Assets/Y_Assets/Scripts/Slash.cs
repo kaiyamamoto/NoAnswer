@@ -3,17 +3,16 @@ using System.Collections;
 
 public class Slash : MonoBehaviour
 {
-    private Vector2 start_point;
-    private Vector2 end_point;
+    public Vector2 start_point;
+    public Vector2 end_point;
     public float angle;
     public GameObject gate;
     public float distance;
 
-
     // Use this for initialization
     void Start()
     {
-       
+
     }
 
     // Update is called once per frame
@@ -46,12 +45,8 @@ public class Slash : MonoBehaviour
 
             // 距離の算出
             distance = Vector2.Distance(start_point, end_point);
-
-            Debug.Log("distance = " + distance);
-
+            //   Debug.Log("distance = " + distance);
         }
-
-
 
         // キーを離した瞬間、終点を取得し、オブジェクトを生成
         if (Input.GetMouseButtonUp(0))
