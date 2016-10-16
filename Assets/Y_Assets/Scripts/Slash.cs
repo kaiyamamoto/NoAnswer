@@ -70,7 +70,7 @@ public class Slash : MonoBehaviour
 
         }
 
-        if (distance < 2.0f || distance > 3.5f || GageControll.limit <= distance * 0.15f)
+        if (distance < 1.0f || distance > 3.5f || GageControll.limit <= distance * 0.15f)
         {
             color.a = 0.20f;
             if (!(Input.GetMouseButton(0)))
@@ -94,7 +94,7 @@ public class Slash : MonoBehaviour
                 obj_pos.x = start_point.x + (end_point.x - start_point.x) / 2;
                 obj_pos.y = start_point.y + (end_point.y - start_point.y) / 2;
 
-                if ((distance >= 2.0f && distance <= 3.5f ) && GageControll.limit > distance * 0.15f)
+                if ((distance >= 1.0f && distance <= 3.5f ) && GageControll.limit > distance * 0.15f)
                 {
                     Instantiate(gate, obj_pos, Quaternion.identity);
 
