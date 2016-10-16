@@ -31,13 +31,13 @@ public class DestroyObject : MonoBehaviour
         if (alive_time > life_time)
         {
             Vector3 shorten = this.transform.localScale;
-            shorten.Set(transform.localScale.x - 0.1f, transform.localScale.y, transform.localScale.z);
+            shorten.Set(transform.localScale.x - 0.05f, transform.localScale.y, transform.localScale.z);
             transform.localScale = shorten;
         }
         else if (this.transform.localScale.x <= distance / 4 * 0.7f)
         {
             Vector3 spread = this.transform.localScale;
-            spread.Set(transform.localScale.x + 0.1f, transform.localScale.y, transform.localScale.z);
+            spread.Set(transform.localScale.x + 0.05f, transform.localScale.y, transform.localScale.z);
             transform.localScale = spread;
         }
 
@@ -54,7 +54,7 @@ public class DestroyObject : MonoBehaviour
         if (other.tag == "soul")
         {
             Debug.Log("hit!!");
-            GameObject.Find("ScoreGUI").SendMessage("AddScore", 1);
+            GameObject.Find("ScoreGUI").SendMessage("AddScore", 10);
 
             Destroy(other.gameObject);
         }

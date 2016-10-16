@@ -3,50 +3,61 @@ using System.Collections;
 
 public class DrawLine : MonoBehaviour
 {
-
     public LineRenderer linerenderer;
     public GameObject ref_obj;
 
     public Vector2 start_point;
     public Vector2 end_point;
+    public float length;
 
     // Use this for initialization
 
-    void Awake()
-    {
-       
-    }
     void Start()
     {
         ref_obj = GameObject.Find("Scythe");
         linerenderer = gameObject.GetComponent<LineRenderer>();
 
-        start_point = ref_obj.GetComponent<Slash>().start_point;
-        end_point = ref_obj.GetComponent<Slash>().end_point;
-
         // 線の幅
-        linerenderer.SetWidth(0.1f, 0.1f);
+        linerenderer.SetWidth(0.03f, 0.03f);
         // 頂点の数
         linerenderer.SetVertexCount(2);
+
+        // 線の長さ
+        length = ref_obj.GetComponent<Slash>().distance;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        // 線の幅
-        linerenderer.SetWidth(0.1f, 0.1f);
-        // 頂点の数
-        linerenderer.SetVertexCount(2);
+        if (Input.GetMouseButtonDown(0))
+        {
+            //    linerenderer.SetPosition(0, new Vector3(0, 0, 0));
+            //    linerenderer.SetPosition(1, new Vector3(0, 0, 0));
+            linerenderer = gameObject.GetComponent<LineRenderer>();
+           // Instantiate(linerenderer);
+        }
 
         if (Input.GetMouseButton(0))
         {
+
+            if (length < 2.0f || length > 3.5f)
+            {
+
+            }
+
+            start_point = ref_obj.GetComponent<Slash>().start_point;
+            end_point = ref_obj.GetComponent<Slash>().end_point;
             // 頂点を設定
-            linerenderer.SetPosition(0, start_point);
-            linerenderer.SetPosition(1, end_point);
+            linerenderer.SetPosition(0, new Vector3(start_point.x, start_point.y, 0));
+            linerenderer.SetPosition(1, new Vector3(end_point.x, end_point.y, 0));
         }
-        else
+
+        if (Input.GetMouseButtonUp(0))
         {
-           // Destroy(linerenderer.gameObject);
+            linerenderer.SetPosition(0, new Vector3(0, 0, 0));
+            linerenderer.SetPosition(1, new Vector3(0, 0, 0));
+            //Destroy(linerenderer);
         }
     }
 }
