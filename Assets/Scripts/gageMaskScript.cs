@@ -7,21 +7,20 @@ public class gageMaskScript : MonoBehaviour
     public RectTransform offset;
     public RectTransform mask;
 
-    public int tension;
-    private int old_tension;
+    private float old_tension;
 
     void Update()
     {
-        if(tension!=old_tension)
+        if(playManager.player_tension != old_tension)
         {
             GageMove();
         }
-        old_tension = tension;
+        old_tension = playManager.player_tension;
     }
 
     private void GageMove()
     {
-        float mask_w = tension * 54.0f;
+        float mask_w = playManager.player_tension * 54.0f;
         float offset_w = 270.0f - mask_w / 2;
         Debug.Log(mask_w);
         Debug.Log(offset_w);

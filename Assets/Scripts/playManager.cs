@@ -9,10 +9,23 @@ public class playManager : MonoBehaviour
     public float waiting_time = 1.0f;
     public static float player_tension = 10.0f;
 	
-	// Update is called once per frame
+
+    void Awake()
+    {
+        player_tension = 10.0f;
+    }
 	void Start ()
     {
         InvokeRepeating("Create", waiting_time, waiting_time);
+    }
+
+    void Update()
+    {
+        if (playManager.player_tension <= 0.0f) 
+        {
+            Debug.Log("finish");
+            GameObject.Find("PlayManager").SendMessage("GameResult");
+        }
     }
 
     void Create()

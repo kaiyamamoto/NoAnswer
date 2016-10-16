@@ -19,7 +19,6 @@ public class soulScript : MonoBehaviour
 
     void Update()
     {
-
         // 移動
         Move();
 
@@ -34,17 +33,12 @@ public class soulScript : MonoBehaviour
         }
     }
 
-
-
-
     void OnTriggerEnter2D(Collider2D other)
     {
-
         if (other.tag == "Gate")
         {
             Destroy(this.gameObject);
         }
-
     }
 
     // 移動

@@ -18,10 +18,6 @@ public class heavenScript : MonoBehaviour
             Destroy(other.gameObject);
 
             playManager.player_tension -= 1.0f;
-            if(playManager.player_tension<0.0f)
-            {
-                GameObject.Find("PlayManager").SendMessage("GameFinish");
-            }
         }
     }
 }
