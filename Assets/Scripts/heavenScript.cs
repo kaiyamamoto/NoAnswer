@@ -17,9 +17,8 @@ public class heavenScript : MonoBehaviour
 
             Destroy(other.gameObject);
 
-            playManager p_manager = play.GetComponent<playManager>();
-            p_manager.player_tension -= 1.0f;
-            if(p_manager.player_tension<0.0f)
+            playManager.player_tension -= 1.0f;
+            if(playManager.player_tension<0.0f)
             {
                 GameObject.Find("PlayManager").SendMessage("GameFinish");
             }

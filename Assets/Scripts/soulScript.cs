@@ -10,8 +10,11 @@ public class soulScript : MonoBehaviour
     void Awake()
     {
         // 速度設定
-        speed_x = Random.Range(-10.0f, 10.0f);
-        speed_y = Random.Range(5.0f, 10.0f);
+        //speed_x = Random.Range(-10.0f, 10.0f);
+        //speed_y = Random.Range(5.0f, 10.0f);
+
+        speed_x = 10.0f;
+        speed_y = 10.0f;
     }
 
     void Update()

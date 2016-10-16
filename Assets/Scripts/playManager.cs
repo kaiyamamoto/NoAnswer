@@ -7,7 +7,7 @@ public class playManager : MonoBehaviour
     public GameObject tension_soul;
     public GameObject rainbow_soul;
     public float waiting_time = 1.0f;
-    public float player_tension = 10.0f;
+    public static float player_tension = 10.0f;
 	
 	// Update is called once per frame
 	void Start ()
