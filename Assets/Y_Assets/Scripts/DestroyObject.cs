@@ -13,7 +13,7 @@ public class DestroyObject : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        ref_obj = GameObject.Find("Scythe");
+        ref_obj = GameObject.Find("ScytheImage");
         distance = ref_obj.GetComponent<Slash>().distance;
         life_time = 5.0f - distance;
         alive_time = 0;

@@ -16,7 +16,7 @@ public class RotateObject : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-       ref_obj = GameObject.Find("Scythe");
+       ref_obj = GameObject.Find("ScytheImage");
 
         angle =ref_obj.GetComponent<Slash>().angle;
         distance =ref_obj.GetComponent<Slash>().distance;

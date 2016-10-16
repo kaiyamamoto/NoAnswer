@@ -16,7 +16,7 @@ public class GageControll : MonoBehaviour {
     // Use this for initialization
     void Start () {
         slider = GameObject.Find("Slider").GetComponent<Slider>();
-        ref_obj = GameObject.Find("Scythe");
+        ref_obj = GameObject.Find("ScytheImage");
 
         Debug.Log("ゲージコントロールのスタートが実行されました");
     }

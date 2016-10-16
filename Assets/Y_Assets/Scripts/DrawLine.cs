@@ -14,7 +14,7 @@ public class DrawLine : MonoBehaviour
 
     void Start()
     {
-        ref_obj = GameObject.Find("Scythe");
+        ref_obj = GameObject.Find("ScytheImage");
         linerenderer = gameObject.GetComponent<LineRenderer>();
 
         // 線の幅
@@ -41,10 +41,6 @@ public class DrawLine : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
 
-            if (length < 2.0f || length > 3.5f)
-            {
-
-            }
 
             start_point = ref_obj.GetComponent<Slash>().start_point;
             end_point = ref_obj.GetComponent<Slash>().end_point;
