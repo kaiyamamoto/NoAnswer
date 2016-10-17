@@ -3,30 +3,20 @@ using System.Collections;
 
 public class Slash : MonoBehaviour
 {
-    public Vector2 start_point;
+    public  Vector2 start_point;
     public Vector2 end_point;
     public SpriteRenderer sprite;
     public float angle;
-    public GameObject gate;
     public float distance;
+    public GameObject gate;
     public float spend_guage;
     public int rotate_state;
     float scythe_angle = 0.0f;
 
-
-    void Awake()
-    {
-        Debug.Log("主ラッシュのアウェイクが実行されました");
-    }
-
-
     // Use this for initialization
     void Start()
     {
-        Debug.Log("スラッシュのスタートが実行されました");
         sprite = GetComponent<SpriteRenderer>();
-        GetComponent<GameObject>();
-
     }
 
     // Update is called once per frame
@@ -86,31 +76,24 @@ public class Slash : MonoBehaviour
         // スプライトの透明度を設定
             sprite.color = color;
 
-            // キーを離した瞬間、終点を取得し、オブジェクトを生成
-            if (Input.GetMouseButtonUp(0))
+        // キーを離した瞬間、終点を取得し、オブジェクトを生成
+        if (Input.GetMouseButtonUp(0))
+        {
+            // オブジェクトの生成
+            Vector2 obj_pos;
+            obj_pos.x = start_point.x + (end_point.x - start_point.x) / 2;
+            obj_pos.y = start_point.y + (end_point.y - start_point.y) / 2;
+
+            if ((distance >= 1.0f && distance <= 3.5f) && GageControll.limit > distance * 0.15f)
             {
-                // オブジェクトの生成
-                Vector2 obj_pos;
-                obj_pos.x = start_point.x + (end_point.x - start_point.x) / 2;
-                obj_pos.y = start_point.y + (end_point.y - start_point.y) / 2;
-
-                if ((distance >= 1.0f && distance <= 3.5f ) && GageControll.limit > distance * 0.15f)
-                {
-                    Instantiate(gate, obj_pos, Quaternion.identity);
-
-                    // ゲージの消費量を設定
-                    spend_guage = distance * 0.15f;
-                }
-                else
-                {
-                    spend_guage = 0;
-                }
-
-
+                Instantiate(gate, obj_pos, Quaternion.identity);
+                spend_guage = distance * 0.15f;
+            }
+            else
+            {
+                spend_guage = 0;
+            }
             rotate_state = 2;
-            
-
-
         }
 
         switch (rotate_state)

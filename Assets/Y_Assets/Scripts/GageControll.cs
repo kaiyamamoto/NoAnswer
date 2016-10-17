@@ -35,9 +35,13 @@ public class GageControll : MonoBehaviour {
 
         spend_gauge = ref_obj.GetComponent<Slash>().spend_guage;
 
-        if (Input.GetMouseButtonUp(0))
+        // フィーバーじゃないときゲージの消費量を設定
+        if (DestroyMyObj.isFever_flag == false)
         {
-            limit -= spend_gauge;
+            if (Input.GetMouseButtonUp(0))
+            {
+                limit -= spend_gauge;
+            }
         }
 
 

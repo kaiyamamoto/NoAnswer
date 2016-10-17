@@ -32,16 +32,11 @@ public class DrawLine : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            //    linerenderer.SetPosition(0, new Vector3(0, 0, 0));
-            //    linerenderer.SetPosition(1, new Vector3(0, 0, 0));
             linerenderer = gameObject.GetComponent<LineRenderer>();
-           // Instantiate(linerenderer);
         }
 
         if (Input.GetMouseButton(0))
         {
-
-
             start_point = ref_obj.GetComponent<Slash>().start_point;
             end_point = ref_obj.GetComponent<Slash>().end_point;
             // 頂点を設定
