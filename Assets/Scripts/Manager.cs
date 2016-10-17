@@ -4,6 +4,14 @@ using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject rankingUI;
+    [SerializeField]
+    private GameObject UI;
+
+    [SerializeField]
+    public FadeManager fade;
+
     public void GameTitle()
     {
         SceneManager.LoadScene("TitleScene");
@@ -11,12 +19,22 @@ public class Manager : MonoBehaviour
 
     public void GamePlay()
     {
-        SceneManager.LoadScene("PlayScene");
+        fade.enableFade = true;
+        fade.enableFadeOut = true;
     }
 
-    public void GameRanking()
+    public void GameRanking(bool isRank)
     {
-        SceneManager.LoadScene("RankingScene");
+        if (isRank)
+        {
+            UI.SetActive(false);
+            rankingUI.SetActive(true);
+        }
+        else
+        {
+            UI.SetActive(true);
+            rankingUI.SetActive(false);
+        }
     }
 
     public void GameResult()

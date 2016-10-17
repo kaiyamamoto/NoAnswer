@@ -7,6 +7,7 @@ public class gageMaskScript : MonoBehaviour
     public RectTransform offset;
     public RectTransform mask;
 
+    public static bool isResult = false;
     private float old_tension;
 
     void Update()
@@ -16,6 +17,9 @@ public class gageMaskScript : MonoBehaviour
             GageMove();
         }
         old_tension = playManager.player_tension;
+
+        if (offset.anchoredPosition.x >= 270.0f)
+            isResult = true;
     }
 
     private void GageMove()
