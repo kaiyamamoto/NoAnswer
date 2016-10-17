@@ -8,6 +8,8 @@ public class Manager : MonoBehaviour
     private GameObject rankingUI;
     [SerializeField]
     private GameObject UI;
+    [SerializeField]
+    private GameObject UI2 = null;
 
     [SerializeField]
     public FadeManager fade;
@@ -28,11 +30,19 @@ public class Manager : MonoBehaviour
         if (isRank)
         {
             UI.SetActive(false);
+            if(UI2!=null)
+            {
+                UI2.SetActive(false);
+            }
             rankingUI.SetActive(true);
         }
         else
         {
             UI.SetActive(true);
+            if (UI2 != null)
+            {
+                UI2.SetActive(true);
+            }
             rankingUI.SetActive(false);
         }
     }

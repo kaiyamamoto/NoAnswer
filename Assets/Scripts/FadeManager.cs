@@ -68,7 +68,8 @@ public class FadeManager : MonoBehaviour
                         SceneManager.LoadScene("PlayScene");
                     else if (Application.loadedLevelName == "PlayScene")
                         SceneManager.LoadScene("ResultScene");
-
+                    else if (Application.loadedLevelName == "ResultScene")
+                        SceneManager.LoadScene("PlayScene");
                 }
             }
         }
