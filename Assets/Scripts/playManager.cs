@@ -8,11 +8,17 @@ public class playManager : MonoBehaviour
     public GameObject rainbow_soul;
     public float waiting_time = 1.0f;
     public static float player_tension = 10.0f;
-	
+
+    [SerializeField]
+    public FadeManager fade;
+
+    private int level;
+
 
     void Awake()
     {
         player_tension = 10.0f;
+        level = 1;
     }
 	void Start ()
     {
@@ -23,11 +29,10 @@ public class playManager : MonoBehaviour
     {
         if (playManager.player_tension <= 0.0f) 
         {
-
             if (gageMaskScript.isResult)
             {
-                Debug.Log("finish");
-                GameObject.Find("PlayManager").SendMessage("GameResult");
+                fade.enableFade = true;
+                fade.enableFadeOut = true;
             }
         }
     }
