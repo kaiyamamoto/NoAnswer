@@ -40,7 +40,7 @@ public class rankingScript : MonoBehaviour
         }
     }
 
-    void SaveRanking(int new_score)
+    public void SaveRanking(int new_score)
     {
         if (highScore[0] != 0)
         {
