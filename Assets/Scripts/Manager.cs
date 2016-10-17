@@ -21,7 +21,19 @@ public class Manager : MonoBehaviour
 
     public void GameResult()
     {
-        GameObject.Find("ScoreGUI").SendMessage("Save");
         SceneManager.LoadScene("ResultScene");
     }
+
+    public void KeySave()
+    {
+        // キーと値を保存
+        PlayerPrefs.Save();
+    }
+
+    public void KeyReset()
+    {
+        // キーを全て消す
+        PlayerPrefs.DeleteAll();
+    }
+
 }
