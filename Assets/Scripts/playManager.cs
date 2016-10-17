@@ -23,8 +23,12 @@ public class playManager : MonoBehaviour
     {
         if (playManager.player_tension <= 0.0f) 
         {
-            Debug.Log("finish");
-            GameObject.Find("PlayManager").SendMessage("GameResult");
+
+            if (gageMaskScript.isResult)
+            {
+                Debug.Log("finish");
+                GameObject.Find("PlayManager").SendMessage("GameResult");
+            }
         }
     }
 
