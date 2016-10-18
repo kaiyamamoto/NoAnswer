@@ -18,7 +18,7 @@ public class ResultManager : MonoBehaviour
 
     private int gameRank;
     // Use this for initialization
-    void Awake ()
+    void Awake()
     {
         AAction.SetActive(false);
         BAction.SetActive(false);
@@ -51,12 +51,7 @@ public class ResultManager : MonoBehaviour
 
         scoreGUI.text = "" + scoreScript.score;
 
-        ranking.SaveRanking(scoreScript.score);
-    }
-
-    // Update is called once per frame
-    void Update ()
-    {
-
+        int score=scoreScript.score;
+        ranking.SaveRanking(score);
     }
 }
